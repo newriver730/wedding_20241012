@@ -1,5 +1,10 @@
+@font-face {
+    font-family: 'RomanSnow';
+    src: url('fonts/romansnow.ttf') format('truetype');
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'RomanSnow', Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
