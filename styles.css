@@ -15,6 +15,11 @@ header {
     border-bottom: 2px solid #e2c200;
 }
 
+.title-image {
+    max-width: 100%;
+    height: auto;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
