@@ -50,3 +50,20 @@ footer {
 h1, h2 {
     color: #e2c200;
 }
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
