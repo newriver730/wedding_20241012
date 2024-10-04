@@ -126,3 +126,7 @@ img.clickable {
         width: 100%;
     }
 }
+
+section {
+    text-align: center;
+}
