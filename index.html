@@ -4,16 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>パスコード認証</title>
-    <link rel="stylesheet" href="styles.css"> <!-- スタイルシートを読み込む -->
+    <link rel="stylesheet" href="styles.css"> <!-- CSSパスを確認 -->
+    <style>
+        /* 追加のスタイル (styles.css に組み込んでも良いです) */
+        #password-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70vh; /* 縦中央揃え */
+        }
+        #password {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
     <script>
         function checkPassword() {
             const password = document.getElementById("password").value;
             const correctPassword = "20241012"; // 正しいパスコード
 
             if (password === correctPassword) {
-                // ローカルストレージに認証情報を保存
+                // 認証情報を保存し、メインサイトにリダイレクト
                 localStorage.setItem("authenticated", "true");
-                window.location.href = "wedding.html"; // メインサイトにリダイレクト
+                window.location.href = "wedding.html";
             } else {
                 alert("暗証番号が違います。");
             }
@@ -30,14 +57,17 @@
 <body>
     <header>
         <img src="title-image.png" alt="新川・小樋井家 結婚式" class="title-image">
+        <h1>新川・小樋井家 結婚式</h1>
     </header>
+
     <main>
-        <section style="text-align: center; margin-top: 20%;">
-            <h2>暗証番号を入力してください</h2>
+        <div id="password-form">
+            <h2>挙式日を入力してください</h2>
             <input type="password" id="password" placeholder="暗証番号">
             <button onclick="checkPassword()">送信</button>
-        </section>
+        </div>
     </main>
+
     <footer>
         <p>&copy; 2024 Shinkawa-Kohii family</p>
     </footer>
