@@ -3,30 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新川・小樋井家 結婚式</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>パスコード認証</title>
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const correctPassword = "20241012"; // 正しいパスコード
+
+            if (password === correctPassword) {
+                // パスコードが正しければローカルストレージにフラグを立ててリダイレクト
+                localStorage.setItem("authenticated", "true");
+                window.location.href = "wedding.html"; // メインサイトにリダイレクト
+            } else {
+                alert("暗証番号が違います。");
+            }
+        }
+
+        // ページが読み込まれたときに、すでに認証されているかチェック
+        window.onload = function() {
+            if (localStorage.getItem("authenticated") === "true") {
+                // 認証済みならメインページにリダイレクト
+                window.location.href = "wedding.html";
+            }
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <img src="title-image.png" alt="新川・小樋井家 結婚式" class="title-image">
-        <h1>新川・小樋井家 結婚式</h1>
-        <nav>
-            <ul>
-                <li><a href="greeting.html">ご挨拶</a></li>
-                <li><a href="seating.html">席次表</a></li>
-                <li><a href="menu.html">お料理</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section style="text-align: center;">
-            <h2>ようこそ</h2>
-            <p>新川・小樋井家の結婚式にご参列いただき<br>
-               ありがとうございます</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Shinkawa-Kohii family</p>
-    </footer>
+    <div id="password-form" style="text-align: center; margin-top: 20%;">
+        <h2>暗証番号を入力してください</h2>
+        <input type="password" id="password" placeholder="暗証番号">
+        <button onclick="checkPassword()">送信</button>
+    </div>
 </body>
 </html>
