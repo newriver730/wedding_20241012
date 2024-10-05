@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>パスコード認証</title>
+    <title>挙式日を入力してください</title>
     <link rel="stylesheet" href="styles.css"> <!-- CSSパスを確認 -->
     <style>
-        /* 追加のスタイル (styles.css に組み込んでも良いです) */
+        /* フォームを上部に配置するためのスタイル */
         #password-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 70vh; /* 縦中央揃え */
+            margin: 50px auto; /* 上部からの余白を設定 */
+            width: 80%; /* フォームの横幅 */
+            max-width: 400px; /* 最大幅を設定 */
+            text-align: center; /* テキスト中央揃え */
         }
-        #password {
+
+        input[type="password"] {
             padding: 10px;
             font-size: 16px;
             margin-bottom: 15px;
-            width: 250px;
+            width: 100%; /* 入力欄の横幅を100%に */
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -27,7 +28,9 @@
             color: #fff;
             border: none;
             cursor: pointer;
+            width: 100%; /* ボタンの横幅を100%に */
         }
+
         button:hover {
             background-color: #555;
         }
@@ -38,18 +41,17 @@
             const correctPassword = "20241012"; // 正しいパスコード
 
             if (password === correctPassword) {
-                // 認証情報を保存し、メインサイトにリダイレクト
                 localStorage.setItem("authenticated", "true");
-                window.location.href = "wedding.html";
+                window.location.href = "wedding.html"; // 認証成功でリダイレクト
             } else {
                 alert("暗証番号が違います。");
             }
         }
 
-        // ページ読み込み時に認証済みか確認
+        // 認証済みかを確認
         window.onload = function() {
             if (localStorage.getItem("authenticated") === "true") {
-                window.location.href = "wedding.html"; // 認証済みならメインページにリダイレクト
+                window.location.href = "wedding.html"; // 認証済みならリダイレクト
             }
         }
     </script>
@@ -63,7 +65,7 @@
     <main>
         <div id="password-form">
             <h2>挙式日を入力してください</h2>
-            <input type="password" id="password" placeholder="暗証番号">
+            <input type="password" id="password" placeholder="挙式日">
             <button onclick="checkPassword()">送信</button>
         </div>
     </main>
